@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${vcpkgRoot}/x64-linux/include",
+                "/usr/include/imgui",
+                "/usr/include/imgui/backends"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/g++-13",
+            "cppStandard": "c++14",
+            "cStandard": "gnu17"
+        }
+    ],
+    "version": 4
+}
