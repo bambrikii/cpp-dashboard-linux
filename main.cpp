@@ -17,7 +17,8 @@
 #endif
 #include <GLFW/glfw3.h> // Will drag system OpenGL headers
 
-#include "boards/board1.h"
+// #include "boards/board1.h"
+#include "boards/board1.cpp"
 
 // [Win32] Our example includes a copy of glfw3.lib pre-compiled with VS2010 to maximize ease of testing and compatibility with old VS compilers.
 // To link with VS2010-era libraries, VS2015+ requires linking with legacy_stdio_definitions.lib, which we do using this pragma.
@@ -118,6 +119,9 @@ int main(int, char **)
     // Our state
     ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
+    Board1 board1;
+    bool buttonClicked = true;
+
     // Main loop
 #ifdef __EMSCRIPTEN__
     // For an Emscripten build we are disabling file-system access, so let's not attempt to do a fopen() of the imgui.ini file.
@@ -163,7 +167,19 @@ int main(int, char **)
             ImGui::Text("counter = %d", counter);
 
             ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / io.Framerate, io.Framerate);
+
+            if (ImGui::Button("Show my frame"))
+            {
+                buttonClicked = !buttonClicked;
+            }
+
             ImGui::End();
+        }
+
+        if (buttonClicked)
+        {
+            board1.draw();
+            // buttonClicked = false;
         }
 
         // Rendering

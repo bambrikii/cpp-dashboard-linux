@@ -12,6 +12,7 @@
         "-I/usr/include/GL",
         "-I/usr/include/imgui/backends",
         "-I/usr/include/stb",
+        "-I.",
         "-L/usr/lib/x86_64-linux-gnu",
         "-limgui",
         "-lglfw",
